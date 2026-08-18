@@ -1,0 +1,190 @@
+:root {
+  --container-7xl: 90rem;
+  /* --bg-header: 235, 239, 245;
+  --bg-footer: 228, 233, 241; */
+  --bg-header: 238, 233, 222;
+  --bg-footer: 230, 224, 211;
+  --font-sans: "Inter", sans-serif;
+}
+
+.dark {
+  /* --bg-header: 15, 20, 30;
+  --bg-footer: 13, 18, 28; */
+  --bg-header: 29, 29, 32;
+  --bg-footer: 29, 29, 32;
+}
+
+.prose :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: "Archivo", sans-serif;
+}
+
+h1.text-4xl,
+h2.text-2xl,
+h2.text-xl {
+  font-family: "Archivo", sans-serif;
+}
+
+.main-menu > a.text-base {
+  font-family: "Archivo", sans-serif;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.main-menu {
+  position: relative;
+  z-index: 50;
+}
+
+.main-menu a.text-base {
+  font-size: 18px;
+  font-family: "Archivo";
+  color: rgba(var(--color-neutral-800), 1);
+  letter-spacing: 1.2px;
+
+  :is(.dark &) {
+    color: rgba(var(--color-neutral-200), 1);
+  }
+}
+
+.main-menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(var(--bg-header), 1);
+  /* border-bottom: 1px solid rgba(var(--color-neutral-700), 0.3); */
+  z-index: -1;
+}
+
+#site-footer {
+  position: relative;
+  isolation: isolate;
+  margin-top: 2rem;
+}
+
+#site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(var(--bg-footer), 1);
+  /* border-top: 1px solid rgba(var(--color-neutral-700), 0.3); */
+  z-index: -1;
+}
+
+main article {
+  max-width: 65rem;
+  margin-inline: auto;
+  width: 100%;
+}
+
+main article #single_header,
+main article .article-content {
+  max-width: 70rem;
+}
+
+#main-content article > footer {
+  max-width: 70rem;
+}
+
+#search-query:focus,
+#search-query:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#search-results a:focus,
+#search-results a:focus-visible {
+  outline: none !important;
+}
+
+table {
+  display: table;
+  width: 100%;
+}
+
+.article-content {
+  overflow-x: auto;
+}
+
+.article-link--simple {
+  margin-left: 2.5%;
+}
+
+@media (max-width: 768px) {
+  .article-link--simple {
+    margin-left: 6%; 
+  }
+}
+
+.article-link--simple header {
+  position: relative;
+}
+
+.article-link--simple header::before {
+  content: "\203A";
+  position: absolute;
+  left: -1.5ch;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1em;
+  color: rgba(var(--color-neutral-500), 1);
+  transition: color 0.2s ease;
+}
+
+.article-link--simple:hover header::before {
+  color: rgba(var(--color-primary-600), 1);
+}
+
+.article-link--simple header a {
+  transition: color 0.2s ease;
+}
+
+.article-link--simple header a:hover {
+  color: rgba(var(--color-primary-600), 1) !important;
+  text-decoration: none !important;
+}
+
+:is(.dark) .article-link--simple header a:hover {
+  color: rgba(var(--color-primary-300), 1) !important;
+}
+
+:is(.dark) .article-link--simple:hover header::before {
+  color: rgba(var(--color-primary-300), 1);
+}
+
+/* Badge tag hover animation */
+.badge-tag {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.badge-tag:hover {
+  background-color: rgb(var(--color-primary-400));
+  border-color: rgb(var(--color-primary-400));
+  color: white;
+}
+
+:is(.dark) .badge-tag:hover {
+  background-color: rgb(var(--color-primary-600));
+  border-color: rgb(var(--color-primary-600));
+}
+
+/* Card title hover — color change instead of underline */
+article header a {
+  transition: color 0.2s ease;
+}
+
+article header a:hover {
+  text-decoration: none !important;
+  color: rgba(var(--color-primary-600), 1) !important;
+}
+
+:is(.dark) article header a:hover {
+  color: rgba(var(--color-primary-300), 1) !important;
+}
